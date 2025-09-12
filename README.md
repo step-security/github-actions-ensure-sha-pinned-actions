@@ -46,8 +46,5 @@ jobs:
             docker/login-action
 ```
 
-## Contributing
-See [the contributing guide](.github/CONTRIBUTING.md) for detailed instructions on how to get started with our project.
-
 ## License
 The scripts and documentation in this project are released under the [MIT License](LICENSE.md)
