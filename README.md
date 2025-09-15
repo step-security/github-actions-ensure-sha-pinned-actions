@@ -37,9 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v5 # Replace @v5 with full SHA for workflow to pass
       - name: Ensure SHA pinned actions
-        uses: step-security/github-actions-ensure-sha-pinned-actions@v2 # Replace this
+        uses: step-security/github-actions-ensure-sha-pinned-actions@v2 # Replace @v2 with full SHA for workflow to pass
         with:
           allowlist: |
             aws-actions/
