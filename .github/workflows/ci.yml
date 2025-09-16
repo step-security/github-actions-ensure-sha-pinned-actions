@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security_hardening:
+    name: Check security hardening
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone the repository
+      uses: actions/checkout@v5
+    - name: Ensure SHA pinned actions
+      uses: ./
+      continue-on-error: true
+
+  build_test:
+    name: Build & Test
+    needs: security_hardening
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone the repository
+      uses: actions/checkout@v5
+      with:
+        ref: ${{ github.head_ref }} # https://github.com/stefanzweifel/git-auto-commit-action#checkout-the-correct-branch
+    - name: Set up Node
+      uses: actions/setup-node@v5
+      with:
+        node-version: '20'
+    - name: Cache Node Packages
+      id: node-cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.npm
+        key: node-cache-20-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          node-cache-20-
+          node-cache-
+    - name: Get Node packages
+      run: npm ci
+    - name: Run linter tool
+      run: npm run lint
+    - name: Test
+      run: npm run test
+    - name: Prepare
+      run: npm run build
