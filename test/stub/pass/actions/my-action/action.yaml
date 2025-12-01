@@ -10,7 +10,7 @@ runs:
     - id: unversionedstub_all
       uses: ./
     - id: allowlistedstub
-      uses: aws-actions/amazon-ecr-login@v1
+      uses: aws-actions/amazon-ecr-login@2fc7aceee09e9e4a7105c0d060c656fad0b4f63d # v1.7.0
     - id: dockerstub
       uses: docker://rhysd/actionlint@sha256:5f957b2a08d223e48133e1a914ed046bea12e578fe2f6ae4de47fdbe691a2468
     - name: echo hello world
