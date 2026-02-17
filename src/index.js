@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('yaml');
+const axios = require('axios');
 
 const sha1 = /\b[a-f0-9]{40}\b/i;
 const sha256 = /\b[A-Fa-f0-9]{64}\b/i;
@@ -10,9 +11,9 @@ let glob;
 
 async function run() {
   try {
-    await validateSubscription();
     core = await import('@actions/core');
     glob = await import('@actions/glob');
+    await validateSubscription();
     
     const allowlist = core.getInput('allowlist');
     const isDryRun = core.getInput('dry_run') === 'true';
