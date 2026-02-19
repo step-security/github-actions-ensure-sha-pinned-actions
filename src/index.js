@@ -1,16 +1,20 @@
-const core = require('@actions/core');
 const fs = require('fs');
-const glob = require('@actions/glob');
 const path = require('path');
 const yaml = require('yaml');
-const axios = require("axios")
+const axios = require('axios');
 
 const sha1 = /\b[a-f0-9]{40}\b/i;
 const sha256 = /\b[A-Fa-f0-9]{64}\b/i;
 
+let core;
+let glob;
+
 async function run() {
   try {
+    core = await import('@actions/core');
+    glob = await import('@actions/glob');
     await validateSubscription();
+    
     const allowlist = core.getInput('allowlist');
     const isDryRun = core.getInput('dry_run') === 'true';
     let hasError = false;
@@ -36,7 +40,7 @@ async function run() {
       core.startGroup(workflowsPath + '/' + basename);
 
       for (const job in jobs) {
-        jobObject = jobs[job];
+        const jobObject = jobs[job];
         let jobHasError = false;
         if (jobObject === undefined || jobObject === null) {
           core.warning(`The "${job}" job of the "${basename}" workflow is undefined.`);
@@ -187,3 +191,4 @@ async function validateSubscription() {
     }
   }
 }
+
