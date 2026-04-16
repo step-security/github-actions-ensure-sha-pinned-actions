@@ -1,3 +1,5 @@
+[![StepSecurity Maintained Action](https://raw.githubusercontent.com/step-security/maintained-actions-assets/main/assets/maintained-action-banner.png)](https://docs.stepsecurity.io/actions/stepsecurity-maintained-actions)
+
 # GitHub Action — Ensure SHA Pinned Actions
 [![CI](https://github.com/step-security/github-actions-ensure-sha-pinned-actions/actions/workflows/ci.yml/badge.svg)](https://github.com/step-security/github-actions-ensure-sha-pinned-actions/actions/workflows/ci.yml)
 
