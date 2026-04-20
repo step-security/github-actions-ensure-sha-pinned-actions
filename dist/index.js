@@ -18899,7 +18899,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"application/1d-interleaved-parityfec
 /******/ 		// Execute the module function
 /******/ 		var threw = true;
 /******/ 		try {
-/******/ 			__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 			__webpack_modules__[moduleId](module, module.exports, __nccwpck_require__);
 /******/ 			threw = false;
 /******/ 		} finally {
 /******/ 			if(threw) delete __webpack_module_cache__[moduleId];
@@ -19054,8 +19054,8 @@ let glob;
 
 async function run() {
   try {
-    core = await Promise.all(/* import() */[__nccwpck_require__.e(119), __nccwpck_require__.e(421)]).then(__nccwpck_require__.bind(__nccwpck_require__, 6421));
-    glob = await Promise.all(/* import() */[__nccwpck_require__.e(119), __nccwpck_require__.e(206)]).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7206, 23));
+    core = await __nccwpck_require__.e(/* import() */ 421).then(__nccwpck_require__.bind(__nccwpck_require__, 6421));
+    glob = await Promise.all(/* import() */[__nccwpck_require__.e(421), __nccwpck_require__.e(860)]).then(__nccwpck_require__.bind(__nccwpck_require__, 3860));
     await validateSubscription();
     
     const allowlist = core.getInput('allowlist');
