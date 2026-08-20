@@ -1,6 +1,6 @@
 {
   "name": "github-actions-ensure-sha-pinned-actions",
-  "version": "1.0.0",
+  "version": "5.0.7",
   "description": "Ensure that GitHub Actions are pinned to full length commit SHAs",
   "main": "dist/index.js",
   "scripts": {
@@ -19,14 +19,14 @@
   "author": "step-security",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^3.0.0",
-    "@actions/glob": "^0.6.1",
+    "@actions/core": "^3.0.1",
+    "@actions/glob": "^0.7.0",
     "axios": "^1.12.0",
-    "yaml": "^2.8.3"
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.4",
-    "eslint": "^10.1.0",
-    "jest": "^30.3.0"
+    "@vercel/ncc": "^0.44.1",
+    "eslint": "^10.8.0",
+    "jest": "^30.4.2"
   }
 }

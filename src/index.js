@@ -14,7 +14,7 @@ async function run() {
     core = await import('@actions/core');
     glob = await import('@actions/glob');
     await validateSubscription();
-    
+
     const allowlist = core.getInput('allowlist');
     const isDryRun = core.getInput('dry_run') === 'true';
     let hasError = false;
@@ -150,9 +150,13 @@ function assertUsesAllowlist(uses, allowlist) {
   }
 
   const action = uses.substr(0, uses.indexOf('@'));
-  const isAllowed = allowlist.split(/\r?\n/).some((allow) => action.startsWith(allow));
+  const isAllowed = allowlist
+      .split(/\r?\n/)
+      .map((allow) => allow.replace(/#.*/, '').trim())
+      .filter(Boolean)
+      .some((allow) => action.startsWith(allow));
 
-  if(isAllowed) {
+  if (isAllowed) {
     core.info(`${action} matched allowlist — ignoring action.`);
   }
 
