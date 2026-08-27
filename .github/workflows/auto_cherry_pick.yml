@@ -1,6 +1,11 @@
 name: Auto Cherry-Pick from Upstream
 
 on:
+  workflow_run:
+    workflows: [ "Release GitHub Actions" ]
+    types:
+      - completed
+
   workflow_dispatch:
     inputs:
       base_branch:
@@ -11,8 +16,12 @@ on:
         description: "Specify Node.js version (e.g., '18', '20', 'lts/*')"
         required: false
         default: "24"
+      mode:
+        description: "Run mode: cherry-pick or verify"
+        required: false
+        default: "cherry-pick"
   pull_request:
-    types: [opened, synchronize, labeled]
+    types: [ opened, synchronize, labeled ]
 
 permissions:
   contents: write
@@ -22,7 +31,7 @@ permissions:
 
 jobs:
   cherry-pick:
-    if: github.event_name == 'workflow_dispatch' || contains(fromJson(toJson(github.event.pull_request.labels)).*.name, 'review-required')
+    if: (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') || github.event_name == 'workflow_dispatch' || contains(fromJson(toJson(github.event.pull_request.labels)).*.name, 'review-required')
     uses: step-security/reusable-workflows/.github/workflows/auto_cherry_pick.yaml@v1
     with:
       original-owner: "zgosalvez"
