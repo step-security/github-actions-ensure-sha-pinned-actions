@@ -1,7 +1,7 @@
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
     - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
     - uses: docker://rhysd/actionlint:latest
     - uses: docker://rhysd/actionlint:1.6.22
