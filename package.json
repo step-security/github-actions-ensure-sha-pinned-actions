@@ -1,6 +1,7 @@
 {
-  "name": "github-actions-ensure-sha-pinned-actions",
-  "version": "5.0.7",
+  "name": "@step-security/github-actions-ensure-sha-pinned-actions",
+  "private": true,
+  "version": "5.0.10",
   "description": "Ensure that GitHub Actions are pinned to full length commit SHAs",
   "main": "dist/index.js",
   "scripts": {
@@ -17,16 +18,25 @@
     "node"
   ],
   "author": "step-security",
+  "publisher": "step-security",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
     "@actions/glob": "^0.7.0",
-    "axios": "^1.19.0",
-    "yaml": "^2.9.0"
+    "axios": "^1.20.0",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.44.1",
-    "eslint": "^10.8.0",
-    "jest": "^30.4.2"
+    "@vercel/ncc": "^0.45.0",
+    "eslint": "^10.11.0",
+    "jest": "^30.5.1"
+  },
+  "homepage": "https://github.com/step-security/github-actions-ensure-sha-pinned-actions#readme",
+  "bugs": {
+    "url": "https://github.com/step-security/github-actions-ensure-sha-pinned-actions/issues"
+  },
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11"
   }
 }
