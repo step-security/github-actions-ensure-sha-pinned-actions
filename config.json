@@ -1,0 +1,17 @@
+{
+  "$comment": "Managed automatically when syncing with upstream. Do not edit by hand.",
+  "schema_version": 1,
+  "onboarding_type": "copied",
+  "action_type": "node",
+  "upstream": {
+    "repository": "zgosalvez/github-actions-ensure-sha-pinned-actions",
+    "synced_tag": "v5.0.10",
+    "synced_commit": "c4e71056006d29f90204b2d063be337109507d62",
+    "archived": false
+  },
+  "build": {
+    "package_manager": "npm@11.19.0",
+    "node_version": "24",
+    "script": "build"
+  }
+}
