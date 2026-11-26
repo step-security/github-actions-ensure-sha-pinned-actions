@@ -1,3 +1,9 @@
 [[IgnoredVulns]]
-id = "GHSA-hp3w-g68c-fv3c"
-reason = "sprintf-js is a dev dependency and is not used at runtime"
+id = "GHSA-3g3m-2fjr-6pw4"
+ignoreUntil = 2027-02-26
+reason = "glob (10.5.0, 13.0.7) is only pulled in by jest/babel-plugin-istanbul (dev dependencies) and is not bundled into dist. Fix (glob 14.0.2) is blocked until upstream bumps its range."
+
+[[IgnoredVulns]]
+id = "GHSA-g3hv-75wg-m249"
+ignoreUntil = 2027-02-26
+reason = "minimatch 9.0.9 is dev-only (jest tooling). minimatch 10.2.6 is used at runtime via @actions/glob, but only with workflow file paths from the checked-out repo, not untrusted patterns. Fix (minimatch 11.0.1) is blocked until @actions/glob bumps its range."
